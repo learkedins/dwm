@@ -2,11 +2,11 @@
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
-static const unsigned int gappx	    = 5;
+static const unsigned int gappx	    = 8;
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "FantasqueSansM Nerd Font:size=10" };
+static const char *fonts[]          = { "FantasqueSansM Nerd Font:size=13" };
 static const char dmenufont[]       = "FantasqueSansM Nerd Font:size=10";
 /* static const char col_gray1[]       = "#222222";
    static const char col_gray2[]       = "#444444";
@@ -62,11 +62,15 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *screenshotcmd[] = { "screenshot", NULL };
+static const char *partialscreen[] = { "screenshot -s", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+  { MODKEY,                       XK_s,      spawn,          {.v = screenshotcmd } },
+  { MODKEY|ShiftMask,             XK_s,      spawn,          {.v = partialscreen } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
